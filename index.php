@@ -1,8 +1,22 @@
 <?php
+date_default_timezone_get('Europe/Paris');
+require_once 'fonction/classAutoloader.php';
+spl_autoload_register('classAutoloader');
 
-require "classes/Vehicule.php";
-require "classes/Voiture.php";
-require "classes/Coupe.php";
+Demo::afficherMessage('coucou');
+Log::logWrite('hfhf');
+
+$formulaire = new Form('index.php?page=validation', 'contact');
+
+
+$html = $formulaire->beginHtml('vbfvh');
+echo $formulaire->displayForm();
+
+
+$chat =new Mamiferes();
+echo '<pre>';
+var_dump($chat);
+echo '</pre>';
 
 
 $toto = new Coupe("peugeot", "504", "vert", [2552, 24526,26], 1200);
@@ -28,3 +42,6 @@ echo $voiture1->getMarque();
 //echo $voiture1->calculEnergetiqueCinetique() . "<br/>";
 //$voiture1->vitesse = 20;
 //echo $voiture1->calculEnergetiqueCinetique();
+
+$html .= $formulaire->endHtml();
+echo $html;
